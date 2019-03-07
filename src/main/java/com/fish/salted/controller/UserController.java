@@ -7,9 +7,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/user")
@@ -35,18 +38,27 @@ public class UserController {
     }
 
     @RequestMapping(value = "register",method = RequestMethod.POST)
-    public String register(User user,HttpServletRequest request){
-        User exist = userService.getUserByUsername(user.getUsername());
+    @ResponseBody
+    public Map<String,Object> register(@RequestParam("username")String username,
+                        @RequestParam("password")String password,
+                        @RequestParam("email")String email){
+        Map<String,Object> map = new HashMap<>();
+        User exist = userService.getUserByUsername(username);
         if (exist != null){
-            request.setAttribute("registerMessage", "该用户名已注册！");
-            return "forward:/page/register";
+            map.put("registerMessage", "该用户名已注册！");
+            return map;
         }
+        User user = new User();
+        user.setUsername(username);
+        user.setPassword(password);
+        user.setEmail(email);
         Integer result = userService.register(user);
         if (result == 1){
             //注册成功
-            return "redirect:/page/login";
+            map.put("registerMessage", "注册成功");
+            return map;
         }
-        request.setAttribute("registerMessage", "注册失败，请联系管理员...");
-        return "forward:/page/register";
+        map.put("registerMessage", "注册失败，请联系管理员...");
+        return map;
     }
 }
