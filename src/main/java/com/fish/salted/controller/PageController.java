@@ -21,4 +21,28 @@ public class PageController {
     public String toRegister(){
         return "register";
     }
+
+    @RequestMapping(value = "/checkout")
+    public String toCheckOut(){
+        return "checkout";
+    }
+
+    @RequestMapping(value = "/contact")
+    public String toContact(){
+        return "contact";
+    }
+    @RequestMapping(value = "/products")
+    public String toProducts(){
+        return "products";
+    }
+
+    @RequestMapping(value = "/single")
+    public String toSingle(){
+        return "single";
+    }
+
+    @RequestMapping(value = "/wishList")
+    public String toWishList(){
+        return "wishList";
+    }
 }

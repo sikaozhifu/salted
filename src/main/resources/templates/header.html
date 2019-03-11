@@ -39,19 +39,19 @@
 </head>
 <body>
   <!--header-->
-	<div class="header" th:fragment="header">
+  <div class="header" th:fragment="header">
 		<div class="header-top">
 			<div class="container">
 			<div class="header-top-in">			
 				<div class="logo">
-					<a href="index.html"></a>
+					<a href="index.html" th:href="@{/page/index}"></a>
 				</div>
 				<div class="header-in">
 					<ul class="icon1 sub-icon1">
-							<li  ><a href="wishlist.html">愿望清单 (0)</a> </li>
-							<li  ><a href="account.html">我的账户</a></li>
-							<li ><a href="#" > 购物车</a></li>
-							<li > <a href="checkout.html" >查看</a> </li>	
+							<li  ><a href="wishList.html" th:href="@{/page/wishList}">愿望清单 (0)</a> </li>
+							<li  ><a href="login.html" th:href="@{/page/login}">我的账户</a></li>
+							<li ><a href="checkout.html" th:href="@{/page/checkout}"> 购物车</a></li>
+							<li > <a href="checkout.html" th:href="@{/page/checkout}" >查看</a> </li>
 							<li><div class="cart">
 									<a href="#" class="cart-in"> </a>
 									<span> 0</span>
@@ -84,7 +84,7 @@
 	                        	<div class="clearfix"> </div>
 	                        </div>
                             <div class="login_buttons">
-							  <div class="check_button"><a href="checkout.html">查看</a></div>
+							  <div class="check_button"><a href="checkout.html" th:href="@{/page/checkout}">查看</a></div>
 							  <div class="clearfix"></div>
 						    </div>
 					      <div class="clearfix"></div>
@@ -101,23 +101,23 @@
 			<div class="h_menu4">
 				<a class="toggleMenu" href="#">Menu</a>
 				<ul class="nav">
-					<li class="active"><a href="index.html"><i> </i>主页</a></li>
+					<li class="active"><a href="index.html" th:href="@{/page/index}"><i> </i>主页</a></li>
 					<li ><a href="#" >笔记本电脑</a>
 						<ul class="drop">
-							<li><a href="products.html">索尼</a></li>
-							<li><a href="products.html">联想</a></li>
-							<li><a href="products.html">苹果</a></li>
-							<li><a href="products.html">宏碁</a></li>
-							<li><a href="products.html">惠普</a></li>
-							<li><a href="products.html">因特尔</a></li>
+							<li><a href="products.html" th:href="@{/page/products}">索尼</a></li>
+							<li><a href="products.html" th:href="@{/page/products}">联想</a></li>
+							<li><a href="products.html" th:href="@{/page/products}">苹果</a></li>
+							<li><a href="products.html" th:href="@{/page/products}">宏碁</a></li>
+							<li><a href="products.html" th:href="@{/page/products}">惠普</a></li>
+							<li><a href="products.html" th:href="@{/page/products}">因特尔</a></li>
 						</ul>
 						</li> 						
-						<li><a href="products.html" >手机</a></li>            
-						<li><a href="products.html" >服装</a></li>						  				 
-						<li><a href="products.html" >运动</a></li>
-						<li><a href="products.html" >玩具</a></li>
-						<li><a href="products.html" >乐器</a></li>
-						<li><a href="contact.html" >联系</a></li>
+						<li><a href="products.html" th:href="@{/page/products}">手机</a></li>
+						<li><a href="products.html" th:href="@{/page/products}" >服装</a></li>
+						<li><a href="products.html" th:href="@{/page/products}">运动</a></li>
+						<li><a href="products.html" th:href="@{/page/products}">玩具</a></li>
+						<li><a href="products.html" th:href="@{/page/products}" >乐器</a></li>
+						<li><a href="contact.html"  th:href="@{/page/contact}">联系</a></li>
 					
 				</ul>
 				<script type="text/javascript" src="../static/js/nav.js"></script>
@@ -155,8 +155,7 @@
 		</div>
 		</div>
 	</div>
-	
-	<div class="container">
+  <div class="container">
 		<div class="account">
 			<h2 class="account-in">账户</h2>
 				<form th:action="@{/user/register}" th:method="post">
@@ -180,8 +179,7 @@
 				</form>
 		</div>
 	</div>
-		<!---->
-		<div class="footer" th:fragment="footer">
+  <div class="footer" th:fragment="footer">
 			<div class="footer-top">
 				<div class="container">
 					<div class="col-md-4 footer-in">
@@ -219,7 +217,7 @@
 					<div class="footer-middle-in">
 						<h6>客户服务</h6>
 						<ul>
-							<li><a href="contact.html">联系我们</a></li>
+							<li><a href="contact.html" th:href="@{/page/contact}">联系我们</a></li>
 							<li><a href="#">反馈</a></li>
 							<li><a href="#">网站地图</a></li>
 						</ul>
@@ -227,9 +225,9 @@
 					<div class="footer-middle-in">
 						<h6>我的帐户</h6>
 						<ul>
-							<li><a href="account.html">我的账户</a></li>
+							<li><a href="login.html" th:href="@{/page/login}">我的账户</a></li>
 							<li><a href="#">订单历史记录</a></li>
-							<li><a href="wishlist.html">愿望清单</a></li>
+							<li><a href="wishList.html" th:href="@{/page/wishList}">愿望清单</a></li>
 							<li><a href="#">通讯</a></li>
 						</ul>
 					</div>
