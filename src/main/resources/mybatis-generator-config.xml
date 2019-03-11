@@ -15,7 +15,7 @@
 
         <!-- 数据库的相关配置 -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/saltedfish"
+                        connectionURL="jdbc:mysql://localhost:3306/fish"
                         userId="root"
                         password="root"/>
 
